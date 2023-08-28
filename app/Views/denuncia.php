@@ -1,5 +1,6 @@
 
 <div
+    class="shadow"
     style="
         width: 93vw;
         height: 93vh;
@@ -18,5 +19,12 @@
     <hr>
 
     <p>Esse é o formulário para denuncias de <b>Invasões em Areas Mananciais</b>. Sua denuncia é muito importante e será <b>anônima</b>!</p>
+
+    <p>Nome</p>
+    <p>Telefone</p>
+    <p>Manancial</p>
+    <p>Relato</p>
+
+    
 
 </div>

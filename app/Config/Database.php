@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
-        'username' => '',
-        'password' => '',
-        'database' => '',
+        'hostname' => '50.116.86.134',
+        'username' => 'scsport_ADMIN',
+        'password' => '=BmZqGOHK&vJ',
+        'database' => 'scsport_APS_8_F',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
