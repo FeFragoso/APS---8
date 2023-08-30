@@ -20,11 +20,6 @@
             margin: 0;
         }
 
-        hr
-        {
-            margin: 0.5rem;
-        }
-
     </style>
 
 </head>

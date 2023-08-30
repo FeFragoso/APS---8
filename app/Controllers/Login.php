@@ -41,7 +41,7 @@ class Login extends BaseController
 
             $this->session->set($sessionData);
 
-            return redirect()->to('denuncia');
+            return redirect()->to('painel');
         }
         else
         {

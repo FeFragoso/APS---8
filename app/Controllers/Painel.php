@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
-class Denuncia extends BaseController
+class Painel extends BaseController
 {
     public function index(): string
     {
         return
             view('templates/header').
-            view('denuncia').
+            view('painel-administrativo').
             view('templates/footer');
     }
 }
