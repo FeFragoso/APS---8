@@ -11,9 +11,10 @@ class DenunciaModel extends Model
     protected $primaryKey       = 'PK';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
+    protected $useSoftDeletes   = true;
     protected $protectFields    = true;
     protected $allowedFields    = [
+        'STATUS',
         'NOME',
         'TELEFONE',
         'MANANCIAL',
