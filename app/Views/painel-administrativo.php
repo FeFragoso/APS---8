@@ -79,12 +79,12 @@
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                        <button class="nav-link" id="tabela-atendidos" data-bs-toggle="tab" data-bs-target="#tabela-atendidos-div" type="button" role="tab" aria-controls="tabela-atendidos-div" aria-selected="false">
                             Atendidos
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                        <button class="nav-link" id="tabela-desconsiderados" data-bs-toggle="tab" data-bs-target="#tabela-desconsiderados-div" type="button" role="tab" aria-controls="tabela-desconsiderados-div" aria-selected="false">
                             Desconsiderados
                         </button>
                     </li>
@@ -116,17 +116,25 @@
 
             <!-- TABELA ATENDIDOS -->
             <div
-                id="profile-tab-pane"
+                id="tabela-atendidos-div"
                 role="tabpanel"
-                aria-labelledby="profile-tab"
+                aria-labelledby="tabela-atendidos"
                 tabindex="0"
                 class="tab-pane fade"
             >
                 <?= view('tabelas/atendidos', ['data' => $data->where('STATUS', 'Atendido')->findAll()]) ?>
             </div>
 
-            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
-            <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
+            <!-- TABELA DESCONSIDERADOS -->
+            <div
+                id="tabela-desconsiderados-div"
+                role="tabpanel"
+                aria-labelledby="tabela-desconsiderados"
+                tabindex="0"
+                class="tab-pane fade"
+            >
+                <?= view('tabelas/atendidos', ['data' => $data->where('STATUS', 'Desconsiderado')->findAll()]) ?>
+            </div>
         </div>
         <!-- TABELAS DIV - END -->
 

@@ -32,7 +32,7 @@ class Painel extends BaseController
 
     public function desconsiderar($PK)
     {
-        $this->DenunciaModel->delete(['PK' => $PK]);
+        $this->DenunciaModel->set('STATUS', 'Desconsiderado')->where('PK', $PK)->update();
 
         return redirect()->to('painel');
     }

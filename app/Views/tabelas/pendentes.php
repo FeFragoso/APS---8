@@ -2,7 +2,6 @@
     <thead>
         <tr>
             <td scope="col" class="text-nowrap text-center">Ações</td>
-            <td scope="col" class="text-nowrap text-center">Status</td>
             <td scope="col" class="text-nowrap text-center">Código</td>
             <td scope="col" class="text-nowrap text-center">Nome</td>
             <td scope="col" class="text-nowrap text-center">Telefone</td>
@@ -17,8 +16,9 @@
 
         <!-- STATUS COR LINHA -->
         <style>
-            .Atendido { background-color: #aea !important; }
-            .Pendente { background-color: #ffa !important; }
+            .Atendido       { background-color: #aea !important; }
+            .Pendente       { background-color: #ffa !important; }
+            .Desconsiderado { background-color: #faa !important; }
         </style>
 
         <?php foreach($data as $x) { ?>
@@ -49,9 +49,6 @@
 
                     <?php } ?>
                 </td>
-
-                <!-- STATUS -->
-                <td class="text-nowrap <?= $x['STATUS'] ?>"><?= $x['STATUS'] ?></td>
 
                 <!-- CODIGO -->
                 <td
