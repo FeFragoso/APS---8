@@ -15,12 +15,22 @@
     <!-- GOOGLE CHARTS -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+    <!-- X-HTML -->
+    <script type="module" src="<?= base_url('X-HTML/X_HTML.js') ?>"></script> 
+
     <style>
 
         *
         {
             padding: 0;
             margin: 0;
+        }
+
+        .null
+        {
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
         }
 
     </style>
