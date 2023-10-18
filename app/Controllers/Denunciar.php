@@ -23,10 +23,18 @@ class Denunciar extends BaseController
 
     public function cadastro()
     {
-        $data = $this->request->getPost();
+        $data = $this->request->getJSON(true);
 
-        dd($data);
+        // Status
+        $data['STATUS'] = 'Pendente';
 
-        return $this->response->setJSON($data);
+        $this->DenunciaModel->insert($data);
+
+        $retorno = [
+            'status' => 'success',
+            'data'   => $data
+        ];
+
+        return $this->response->setJSON($retorno);
     }
 }

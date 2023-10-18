@@ -35,7 +35,7 @@ export default class X_Form extends HTMLElement {
   }
 
   submit(e) {
-
+    
     let inputs = this._Xinputs.split(' ');
 
     let data = {};
@@ -55,30 +55,37 @@ export default class X_Form extends HTMLElement {
 
     var AJAX = new XMLHttpRequest();
 
-    let retorno = '';
-
-    AJAX.onreadystatechange = function () {
-      if (AJAX.readyState === 4) {
-        if (AJAX.status === 200) {
-          // RETORNO QUANDO DER CERTO
-          retorno = 'AJAX.responseText';
-        } else {
-          // RETORNO QUANDO DER ERRADO
-          retorno = `Erro na requisição ${this._Xid}`;
-        }
-      }
-    };
-
-    // RETORNO
-    this.setAttribute('x-retorno', retorno);
-
     AJAX.open("POST", this._Xurl, true);
     
-    AJAX.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    AJAX.setRequestHeader("Content-Type", "application/json;");
 
-    AJAX.send(JSON.stringify(data));
+    let retorno = '';
+
+    AJAX.onload = function () {
+      if (AJAX.status >= 200 && AJAX.status < 300) {
+        // RETORNO QUANDO DER CERTO
+        console.log(AJAX.responseText);
+      } else {
+        // RETORNO QUANDO DER ERRADO
+        console.error(`Erro na requisição ${this._Xid}`);
+      }
+    };
     
-    console.log(JSON.stringify(data), retorno);
+    AJAX.send(JSON.stringify(data));
+
+    setTimeout(function () {
+
+      if (!AJAX.status >= 200 && !AJAX.status < 300) {
+
+        AJAX.abort(); // Cancela a requisição em caso de timeout
+
+        retorno = 'A requisição demorou muito e foi cancelada.';
+        console.error('A requisição demorou muito e foi cancelada.');
+
+      }
+
+    }, 5000);
+    
   }
 
   render() {

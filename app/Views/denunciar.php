@@ -24,10 +24,10 @@
         <div class="input-group mb-3">
             <span class="input-group-text shadow-sm"><i class="bi bi-person-vcard"></i></span>
             <x-input
-                contexto="dinheiro"
+                contexto="texto"
                 x-id="NOME"
                 class="form-control shadow-sm"
-                x-class="null"
+                x-class="null w-100"
                 x-placeholder="Anônimo"
             ></x-input>
         </div>
@@ -37,9 +37,10 @@
         <div class="input-group mb-3">
             <span class="input-group-text shadow-sm"><i class="bi bi-telephone"></i></span>
             <x-input
+                contexto="telefone"
                 x-id="TELEFONE"
                 class="form-control shadow-sm"
-                x-class="null"
+                x-class="null w-100"
                 x-placeholder="Anônimo"
             ></x-input>
         </div>
@@ -48,19 +49,30 @@
         <label for="MANANCIAL" class="form-label">Manancial</label>
         <div class="input-group mb-3">
         <span class="input-group-text shadow-sm"><i class="bi bi-droplet"></i></span>
-            <select id="MANANCIAL" name="MANANCIAL" class="form-select shadow-sm">
-                <option selected disabled>Selecione</option>
-                <option value="Santos ZN">Santos ZN</option>
-                <option value="Santos Canal 7">Santos Canal 7</option>
-                <option value="Santos Centro">Santos Centro</option>
-            </select>
+            <x-select
+                x-id="MANANCIAL"
+                x-opcoes="Santos ZN/?/Santos Canal 7/?/Santos Centro"
+                
+                class="form-select shadow-sm"
+                x-class="null w-100"
+                x-opcoesStyle="
+                    width: 90%;
+                    max-height: 10rem;
+                    overflow-y: auto;
+
+                    border: solid 1px #aaa;
+                    background-color: #fff;
+                "
+                x-opcoesClass="list-group shadow"
+                x-opcaoClass="list-group-item list-group-item-action"
+            ></x-select>
         </div>
 
         <!-- RELATO -->
         <div class="mb-3">
             <label for="RELATO" class="form-label">Relato</label>
             <textarea
-                id="RELATO"
+                id="RELATO-hidden"
                 name="RELATO"
                 class="form-control shadow-sm"
                 rows="6"
@@ -74,7 +86,7 @@
     <div class="card-footer row">
         
         <x-form
-            x-inputs="NOME TELEFONE"
+            x-inputs="NOME TELEFONE MANANCIAL RELATO"
             x-url="<?= base_url('denunciar/cadastro') ?>"
             x-id="btnSubmit"
             class="col-8 m-1 d-grid p-0"
